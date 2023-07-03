@@ -34,6 +34,11 @@ app.post("/api/upload", upload.single("file"), (req, res) => {
   res.status(200).json("File has been uploaded");
 });
 
+app.get("/", (req,res) => {
+    res.setHeader("Access-Control-Allow-Credentials", "true")
+    res.send("Api is running");
+});
+
 
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
